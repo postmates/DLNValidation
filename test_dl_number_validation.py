@@ -45,7 +45,8 @@ class DLNumberValidationTest(unittest.TestCase):
         dl_state = 'AZ'
         self.assertFalse(is_valid('1234567', dl_state))
         self.assertTrue(is_valid('a123456', dl_state))
-        self.assertTrue(is_valid('ab12345', dl_state))
+        self.assertTrue(is_valid('A123456', dl_state))
+        self.assertTrue(is_valid('aB12345', dl_state))
         self.assertTrue(is_valid('123456789', dl_state))
 
     def test_arkansas(self):
@@ -58,6 +59,7 @@ class DLNumberValidationTest(unittest.TestCase):
         dl_state = 'CA'
         self.assertFalse(is_valid('1234567', dl_state))
         self.assertTrue(is_valid('a1234567', dl_state))
+        self.assertTrue(is_valid('A1234567', dl_state))
         self.assertFalse(is_valid('ab1234567', dl_state))
 
     def test_colorado(self):
@@ -65,7 +67,8 @@ class DLNumberValidationTest(unittest.TestCase):
         self.assertTrue(is_valid('123456789', dl_state))
         self.assertFalse(is_valid('12345678', dl_state))
         self.assertTrue(is_valid('a123456', dl_state))
-        self.assertTrue(is_valid('ab12345', dl_state))
+        self.assertTrue(is_valid('A123456', dl_state))
+        self.assertTrue(is_valid('Ab12345', dl_state))
 
     def test_connecticut(self):
         dl_state = 'CT'
@@ -90,6 +93,7 @@ class DLNumberValidationTest(unittest.TestCase):
         dl_state = 'FL'
         self.assertFalse(is_valid('1234567', dl_state))
         self.assertTrue(is_valid('a123456789012', dl_state))
+        self.assertTrue(is_valid('C123456789012', dl_state))
         self.assertFalse(is_valid('a1234567890', dl_state))
         self.assertFalse(is_valid('ab1234567', dl_state))
 
@@ -104,6 +108,7 @@ class DLNumberValidationTest(unittest.TestCase):
         dl_state = 'HI'
         self.assertTrue(is_valid('123456789', dl_state))
         self.assertTrue(is_valid('a12345678', dl_state))
+        self.assertTrue(is_valid('M12345678', dl_state))
         self.assertFalse(is_valid('ab1234567', dl_state))
 
     def test_idaho(self):
@@ -111,17 +116,20 @@ class DLNumberValidationTest(unittest.TestCase):
         self.assertTrue(is_valid('123456789', dl_state))
         self.assertFalse(is_valid('a12345678', dl_state))
         self.assertTrue(is_valid('ab123456a', dl_state))
+        self.assertTrue(is_valid('AB123456A', dl_state))
 
     def test_illinois(self):
         dl_state = 'IL'
         self.assertFalse(is_valid('123456789', dl_state))
         self.assertTrue(is_valid('a12345678901', dl_state))
+        self.assertTrue(is_valid('A123456789012', dl_state))
         self.assertFalse(is_valid('ab1234567', dl_state))
 
     def test_indiana(self):
         dl_state = 'IN'
         self.assertTrue(is_valid('123456789', dl_state))
         self.assertTrue(is_valid('a123456789', dl_state))
+        self.assertTrue(is_valid('A123456789', dl_state))
         self.assertFalse(is_valid('ab1234567', dl_state))
 
     def test_iowa(self):
@@ -130,18 +138,22 @@ class DLNumberValidationTest(unittest.TestCase):
         self.assertFalse(is_valid('a12345678', dl_state))
         self.assertFalse(is_valid('ab1234567', dl_state))
         self.assertTrue(is_valid('123ab1234', 'IA'))
+        self.assertTrue(is_valid('123AB1234', 'IA'))
 
     def test_kansas(self):
         dl_state = 'KS'
         self.assertTrue(is_valid('123456789', dl_state))
         self.assertTrue(is_valid('a12345678', dl_state))
+        self.assertTrue(is_valid('A12345678', dl_state))
         self.assertFalse(is_valid('ab1234567', dl_state))
         self.assertTrue(is_valid('a1a1a', dl_state))
+        self.assertTrue(is_valid('A1a1C', dl_state))
 
     def test_kentucky(self):
         dl_state = 'KY'
         self.assertTrue(is_valid('123456789', dl_state))
         self.assertTrue(is_valid('a12345678', dl_state))
+        self.assertTrue(is_valid('A12345678', dl_state))
         self.assertFalse(is_valid('ab1234567', dl_state))
 
     def test_louisiana(self):
@@ -155,12 +167,14 @@ class DLNumberValidationTest(unittest.TestCase):
         self.assertFalse(is_valid('1234', dl_state))
         self.assertTrue(is_valid('12345678', dl_state))
         self.assertTrue(is_valid('1234567a', dl_state))
+        self.assertTrue(is_valid('1234567A', dl_state))
         self.assertFalse(is_valid('a123456', dl_state))
 
     def test_maryland(self):
         dl_state = 'MD'
         self.assertFalse(is_valid('1234567', dl_state))
         self.assertTrue(is_valid('a123456789012', dl_state))
+        self.assertTrue(is_valid('M123456789012', dl_state))
         self.assertFalse(is_valid('a1234567890', dl_state))
         self.assertFalse(is_valid('ab1234567', dl_state))
 
@@ -168,6 +182,7 @@ class DLNumberValidationTest(unittest.TestCase):
         dl_state = 'MA'
         self.assertTrue(is_valid('123456789', dl_state))
         self.assertTrue(is_valid('a12345678', dl_state))
+        self.assertTrue(is_valid('A12345678', dl_state))
         self.assertFalse(is_valid('a1234567890', dl_state))
         self.assertFalse(is_valid('ab1234567', dl_state))
 
@@ -175,6 +190,7 @@ class DLNumberValidationTest(unittest.TestCase):
         dl_state = 'MI'
         self.assertFalse(is_valid('1234567', dl_state))
         self.assertTrue(is_valid('a123456789012', dl_state))
+        self.assertTrue(is_valid('L123456789012', dl_state))
         self.assertTrue(is_valid('a1234567890', dl_state))
         self.assertFalse(is_valid('ab1234567', dl_state))
 
@@ -182,6 +198,7 @@ class DLNumberValidationTest(unittest.TestCase):
         dl_state = 'MN'
         self.assertFalse(is_valid('1234567', dl_state))
         self.assertTrue(is_valid('a123456789012', dl_state))
+        self.assertTrue(is_valid('M123456789012', dl_state))
         self.assertFalse(is_valid('a1234567890', dl_state))
         self.assertFalse(is_valid('ab1234567', dl_state))
 
@@ -196,9 +213,15 @@ class DLNumberValidationTest(unittest.TestCase):
         dl_state = 'MO'
         self.assertTrue(is_valid('123456789', dl_state))
         self.assertTrue(is_valid('a12345678', dl_state))
-        self.assertTrue(is_valid('a123456R', dl_state))
+        self.assertTrue(is_valid('a123456r', dl_state))
         self.assertTrue(is_valid('12345678ab', dl_state))
         self.assertTrue(is_valid('123456789a', dl_state))
+
+        self.assertTrue(is_valid('A12345678', dl_state))
+        self.assertTrue(is_valid('A123456R', dl_state))
+        self.assertTrue(is_valid('12345678AB', dl_state))
+        self.assertTrue(is_valid('123456789A', dl_state))
+
         self.assertFalse(is_valid('ab1234567', dl_state))
 
     def test_montana(self):
@@ -206,6 +229,7 @@ class DLNumberValidationTest(unittest.TestCase):
         self.assertTrue(is_valid('123456789', dl_state))
         self.assertTrue(is_valid('1234567890123', dl_state))
         self.assertTrue(is_valid('a12345678', dl_state))
+        self.assertTrue(is_valid('A12345678', dl_state))
         self.assertFalse(is_valid('a1234567890', dl_state))
         self.assertFalse(is_valid('ab1234567', dl_state))
 
@@ -221,7 +245,9 @@ class DLNumberValidationTest(unittest.TestCase):
         self.assertFalse(is_valid('1234', dl_state))
         self.assertTrue(is_valid('1234567890', dl_state))
         self.assertTrue(is_valid('x12345678', dl_state))
+        self.assertTrue(is_valid('X12345678', dl_state))
         self.assertFalse(is_valid('a123456', dl_state))
+        self.assertFalse(is_valid('a12345678', dl_state))
         self.assertFalse(is_valid('12345678', dl_state))
 
     def test_new_hampshire(self):
@@ -230,11 +256,13 @@ class DLNumberValidationTest(unittest.TestCase):
         self.assertFalse(is_valid('a12345', dl_state))
         self.assertFalse(is_valid('ab1234567', dl_state))
         self.assertTrue(is_valid('12abc12345', dl_state))
+        self.assertTrue(is_valid('12ABC12345', dl_state))
 
     def test_new_jersey(self):
         dl_state = 'NJ'
         self.assertFalse(is_valid('123456789', dl_state))
         self.assertTrue(is_valid('a12345678901234', dl_state))
+        self.assertTrue(is_valid('N12345678901234', dl_state))
         self.assertFalse(is_valid('a1234567890', dl_state))
         self.assertFalse(is_valid('ab1234567', dl_state))
 
@@ -253,6 +281,7 @@ class DLNumberValidationTest(unittest.TestCase):
         self.assertTrue(is_valid('a1234567', dl_state))
         self.assertTrue(is_valid('A123456789012345678', dl_state))
         self.assertTrue(is_valid('abcdefgh', dl_state))
+        self.assertTrue(is_valid('NEWaYORK', dl_state))
         self.assertFalse(is_valid('123456', dl_state))
 
     def test_north_carolina(self):
@@ -269,12 +298,15 @@ class DLNumberValidationTest(unittest.TestCase):
         self.assertFalse(is_valid('a123456', dl_state))
         self.assertFalse(is_valid('1234567890123', dl_state))
         self.assertTrue(is_valid('abc123456', dl_state))
+        self.assertTrue(is_valid('NDc123456', dl_state))
 
     def test_ohio(self):
         dl_state = 'OH'
         self.assertTrue(is_valid('12345678', dl_state))
         self.assertTrue(is_valid('ab123', dl_state))
         self.assertTrue(is_valid('a123456', dl_state))
+        self.assertTrue(is_valid('OH123', dl_state))
+        self.assertTrue(is_valid('AB23456', dl_state))
         self.assertFalse(is_valid('1234567890123', dl_state))
 
     def test_oklahoma(self):
@@ -282,12 +314,14 @@ class DLNumberValidationTest(unittest.TestCase):
         self.assertTrue(is_valid('123456789', dl_state))
         self.assertFalse(is_valid('ab123', dl_state))
         self.assertTrue(is_valid('a123456789', dl_state))
+        self.assertTrue(is_valid('O123456789', dl_state))
         self.assertFalse(is_valid('1234567890123', dl_state))
 
     def test_oregon(self):
         dl_state = 'OR'
         self.assertTrue(is_valid('12345678', dl_state))
         self.assertTrue(is_valid('ab12345', dl_state))
+        self.assertTrue(is_valid('OR12345', dl_state))
         self.assertTrue(is_valid('a123456', dl_state))
         self.assertFalse(is_valid('1234567890123', dl_state))
 
@@ -303,6 +337,7 @@ class DLNumberValidationTest(unittest.TestCase):
         self.assertTrue(is_valid('1234567', dl_state))
         self.assertFalse(is_valid('ab123', dl_state))
         self.assertTrue(is_valid('a123456', dl_state))
+        self.assertTrue(is_valid('R123456', dl_state))
         self.assertFalse(is_valid('1234567890123', dl_state))
 
     def test_south_carolina(self):
@@ -350,6 +385,7 @@ class DLNumberValidationTest(unittest.TestCase):
         dl_state = 'VT'
         self.assertTrue(is_valid('12345678', dl_state))
         self.assertTrue(is_valid('1234567a', dl_state))
+        self.assertTrue(is_valid('1234567A', dl_state))
         self.assertFalse(is_valid('ab123', dl_state))
         self.assertFalse(is_valid('a123456', dl_state))
         self.assertFalse(is_valid('1234567890123', dl_state))
@@ -358,6 +394,7 @@ class DLNumberValidationTest(unittest.TestCase):
         dl_state = 'VA'
         self.assertTrue(is_valid('123456789', dl_state))
         self.assertTrue(is_valid('a1234567890', dl_state))
+        self.assertTrue(is_valid('V1234567890', dl_state))
         self.assertFalse(is_valid('ab123', dl_state))
         self.assertFalse(is_valid('a123456', dl_state))
         self.assertFalse(is_valid('1234567890123', dl_state))
@@ -366,6 +403,8 @@ class DLNumberValidationTest(unittest.TestCase):
         dl_state = 'WA'
         self.assertTrue(is_valid('abcd12345678', dl_state))
         self.assertTrue(is_valid('ab**********', dl_state))
+        self.assertTrue(is_valid('WASH12345678', dl_state))
+        self.assertTrue(is_valid('ab*INGTON***', dl_state))
         self.assertFalse(is_valid('ab123', dl_state))
         self.assertFalse(is_valid('a123456', dl_state))
         self.assertFalse(is_valid('abcd123456789', dl_state))
@@ -374,13 +413,14 @@ class DLNumberValidationTest(unittest.TestCase):
         dl_state = 'WV'
         self.assertTrue(is_valid('1234567', dl_state))
         self.assertTrue(is_valid('a12345', dl_state))
-        self.assertTrue(is_valid('ab123456', dl_state))
+        self.assertTrue(is_valid('WV123456', dl_state))
         self.assertFalse(is_valid('a1234567', dl_state))
         self.assertFalse(is_valid('1234567890123', dl_state))
 
     def test_wisconsin(self):
         dl_state = 'WI'
         self.assertTrue(is_valid('a1234567890123', dl_state))
+        self.assertTrue(is_valid('W1234567890123', dl_state))
         self.assertFalse(is_valid('ab123', dl_state))
         self.assertFalse(is_valid('a123456', dl_state))
         self.assertFalse(is_valid('1234567890123', dl_state))

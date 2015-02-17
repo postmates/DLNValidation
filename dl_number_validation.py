@@ -59,10 +59,12 @@ STATE_FORMATS = {
 
 def is_valid(dl_number, dl_state):
     """
+    dl_number is a drivers license number string.
+    dl_state is the state abbreviation of the state of the drivers license.
     Returns True if given a valid drivers license number.
+
     All drivers license numbers must be alphanumeric and conform to
     specific state formats.
-
     For more info, see http://adr-inc.com/PDFs/State_DLFormats.pdf.
     """
 

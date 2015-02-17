@@ -66,7 +66,6 @@ def is_valid(dl_number, dl_state):
     For more info, see http://adr-inc.com/PDFs/State_DLFormats.pdf.
     """
 
-    # print dl_state, dl_number
     if not dl_number:
         return False
 
@@ -78,5 +77,4 @@ def is_valid(dl_number, dl_state):
         is_valid = bool(re.match(regex, dl_number))
         return is_valid
     else:
-        print "didn't match"
         return bool(re.match(r'[a-zA-Z0-9]+$', dl_number))

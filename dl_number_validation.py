@@ -57,10 +57,26 @@ STATE_FORMATS = {
 }
 
 
-def is_valid(dl_number, dl_state):
+OTHER_STATES = [
+    # Territorries
+    'AS', 'GU', 'MP', 'PR', 'VI', 'UM',
+
+    # Freely Associated States
+    'FM', 'MH', 'PW',
+
+    # Armed Forces
+    'AA', 'AE', 'AP'
+]
+
+
+def is_valid(dl_number, dl_state, allow_territories=False):
     """
     dl_number is a drivers license number string.
     dl_state is the state abbreviation of the state of the drivers license.
+    if allow_territories is set, all drivers licenses for territorries,
+    freely associated states and armed forces will be processed as valid.
+    If not set, they will be considered an invalid state and an exception
+    will be thrown.
     Returns True if given a valid drivers license number.
 
     All drivers license numbers must be alphanumeric and conform to
@@ -75,5 +91,7 @@ def is_valid(dl_number, dl_state):
         regex = STATE_FORMATS[dl_state]
         is_valid = bool(re.match(regex, dl_number, re.IGNORECASE))
         return is_valid
+    elif allow_territories and dl_state in OTHER_STATES:
+        return True
     else:
-        return bool(re.match(r'[a-z0-9]+$', dl_number))
+        raise Exception("Invalid state for drivers license number validation!")

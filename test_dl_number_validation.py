@@ -1,5 +1,6 @@
 import unittest
-from dl_number_validation import STATE_FORMATS, is_valid
+from dl_number_validation import (
+    STATE_FORMATS, OTHER_STATES, is_valid)
 
 
 class DLNumberValidationTest(unittest.TestCase):
@@ -435,6 +436,32 @@ class DLNumberValidationTest(unittest.TestCase):
         self.assertFalse(is_valid('icantbelieveijustwroteallthesetests',
                                   dl_state))
 
+    def test_territories(self):
+        for dl_state in OTHER_STATES:
+            self.assertTrue(is_valid('1234567890', dl_state, True))
+            self.assertTrue(is_valid('ab123', dl_state, True))
+            self.assertTrue(is_valid('**--  ', dl_state, True))
+            self.assertTrue(is_valid('.', dl_state, True))
+            self.assertTrue(is_valid('icantbelieveijustwroteallthesetests',
+                                     dl_state, True))
+
+    def test_invalid_state(self):
+        """
+        Invalid states should raise an exception
+        """
+        dl_num = "doesnt_matter"
+        self.assertRaises(Exception, is_valid, dl_num, "fakestate")
+        self.assertRaises(Exception, is_valid, dl_num, "ZZ")
+        self.assertRaises(Exception, is_valid, dl_num, "california")
+
+    def test_allow_territories(self):
+        dl_num = "doesnt_matter"
+        self.assertRaises(Exception, is_valid, dl_num, "AS", False)
+        self.assertRaises(Exception, is_valid, dl_num, "FM", False)
+        self.assertRaises(Exception, is_valid, dl_num, "AA", False)
+        self.assertTrue(is_valid(dl_num, "AS", True))
+        self.assertTrue(is_valid(dl_num, "FM", True))
+        self.assertTrue(is_valid(dl_num, "AA", True))
 
 if __name__ == '__main__':
     unittest.main()

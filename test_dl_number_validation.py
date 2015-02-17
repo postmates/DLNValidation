@@ -19,6 +19,13 @@ class DLNumberValidationTest(unittest.TestCase):
             self.assertFalse(is_valid('a012345678901234', dl_state))
             self.assertFalse(is_valid('', dl_state))
             self.assertFalse(is_valid('-', dl_state))
+            self.assertFalse(is_valid('*', dl_state))
+            self.assertFalse(is_valid('+', dl_state))
+            self.assertFalse(is_valid('#', dl_state))
+            self.assertFalse(is_valid('&', dl_state))
+            self.assertFalse(is_valid('~', dl_state))
+            self.assertFalse(is_valid('123~4567', dl_state))
+            self.assertFalse(is_valid('@', dl_state))
             self.assertFalse(is_valid('abcd', dl_state))
             self.assertFalse(is_valid('1234a67890b2', dl_state))
 

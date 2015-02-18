@@ -14,3 +14,5 @@ from dl-number-validation import is_valid
 if is_valid('C1234567', 'CA'):
     print "Your drivers license number is valid! Yay!"
 ```
+
+If you want US territories to be used for validation call `is_valid` with `allow_territories=True`. Be warned, currently these additional territories accept any format of drivers license.

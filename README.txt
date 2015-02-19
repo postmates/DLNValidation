@@ -15,7 +15,7 @@ Usage
 =====
 Typical usage often looks like this::
 
-    from dl_number_validation import is_valid
+    from dlnvalidation import is_valid
 
     if is_valid('C1234567', 'CA'):
         print "Your drivers license number is valid! Yay!"

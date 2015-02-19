@@ -1,9 +1,9 @@
 import unittest
-from dl_number_validation import (
+from dlnvalidation import (
     STATE_FORMATS, OTHER_STATES, is_valid)
 
 
-class DLNumberValidationTest(unittest.TestCase):
+class DLNValidationTest(unittest.TestCase):
 
     def test_invalid_dl_number_all(self):
         """

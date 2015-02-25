@@ -396,6 +396,7 @@ class DLNValidationTest(unittest.TestCase):
         self.assertTrue(is_valid('123456789', dl_state))
         self.assertTrue(is_valid('a1234567890', dl_state))
         self.assertTrue(is_valid('V1234567890', dl_state))
+        self.assertTrue(is_valid('a12345678', dl_state))
         self.assertFalse(is_valid('ab123', dl_state))
         self.assertFalse(is_valid('a123456', dl_state))
         self.assertFalse(is_valid('1234567890123', dl_state))

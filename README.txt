@@ -5,7 +5,7 @@ DLNValidation
 A python library for validation of USA drivers license numbers.
 Dl-number-validation validates if a drivers license is a valid format for the two letter postal code for the state.
 
-Formats are defined by http://adr-inc.com/PDFs/State_DLFormats.pdf
+Formats are mostly defined by http://adr-inc.com/PDFs/State_DLFormats.pdf. We've added in a couple more formats for drivers license's that we've found valid based on real drivers license numbers.
 
 Installation
 ============

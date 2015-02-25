@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='DLNValidation',
-    version='0.1.3',
+    version='0.1.4',
     author='Mary Stufflebeam',
     author_email='mary@postmates.com',
     py_modules=['dlnvalidation'],

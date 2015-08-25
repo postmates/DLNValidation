@@ -315,8 +315,9 @@ class DLNValidationTest(unittest.TestCase):
     def test_oregon(self):
         dl_state = 'OR'
         self.assertTrue(is_valid('12345678', dl_state))
-        self.assertFalse(is_valid('a123456', dl_state))
-        self.assertFalse(is_valid('OR12345', dl_state))
+        self.assertTrue(is_valid('a123456', dl_state))
+        self.assertTrue(is_valid('OR12345', dl_state))
+        self.assertFalse(is_valid('a12345678', dl_state))
         self.assertFalse(is_valid('1234567890123', dl_state))
 
     def test_pennsylvania(self):

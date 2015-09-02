@@ -28,7 +28,7 @@ class DLNValidationTest(unittest.TestCase):
             self.assertFalse(is_valid('123~4567', dl_state))
             self.assertFalse(is_valid('@', dl_state))
             self.assertFalse(is_valid('abcd', dl_state))
-            self.assertFalse(is_valid('1234a67890b2', dl_state))
+            self.assertFalse(is_valid('1234a67890b23', dl_state))
 
     def test_alabama(self):
         dl_state = 'AL'
@@ -39,7 +39,7 @@ class DLNValidationTest(unittest.TestCase):
 
     def test_alaska(self):
         dl_state = 'AK'
-        self.assertFalse(is_valid('1', dl_state))
+        self.assertTrue(is_valid('1', dl_state))
         self.assertTrue(is_valid('1234567', dl_state))
         self.assertFalse(is_valid('a123456', dl_state))
 
@@ -96,7 +96,8 @@ class DLNValidationTest(unittest.TestCase):
         self.assertFalse(is_valid('1234567', dl_state))
         self.assertTrue(is_valid('a123456789012', dl_state))
         self.assertTrue(is_valid('C123456789012', dl_state))
-        self.assertFalse(is_valid('a1234567890', dl_state))
+        self.assertTrue(is_valid('a12', dl_state))
+        self.assertTrue(is_valid('a1234567890', dl_state))
         self.assertFalse(is_valid('ab1234567', dl_state))
 
     def test_georgia(self):

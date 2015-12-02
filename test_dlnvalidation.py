@@ -406,9 +406,14 @@ class DLNValidationTest(unittest.TestCase):
     def test_west_virginia(self):
         dl_state = 'WV'
         self.assertTrue(is_valid('1234567', dl_state))
-        self.assertFalse(is_valid('a12345', dl_state))
-        self.assertFalse(is_valid('WV123456', dl_state))
+        self.assertTrue(is_valid('F478888', dl_state))
+        self.assertTrue(is_valid('A12345', dl_state))
+        self.assertTrue(is_valid('c123456', dl_state))
+        self.assertTrue(is_valid('zb12345', dl_state))
+        self.assertTrue(is_valid('aZ123456', dl_state))
+        self.assertFalse(is_valid('WV1234567', dl_state))
         self.assertFalse(is_valid('a1234567', dl_state))
+        self.assertFalse(is_valid('12345', dl_state))
         self.assertFalse(is_valid('1234567890123', dl_state))
 
     def test_wisconsin(self):

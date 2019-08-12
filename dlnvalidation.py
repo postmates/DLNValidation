@@ -50,7 +50,9 @@ STATE_FORMATS = {
     'UT': r'^[0-9]{4,10}$',
     'VT': r'^[0-9]{8}$|^[0-9]{7}[a-z]$',
     'VA': r'^[a-z][0-9]{8}$|^[0-9]{9}$',
-    'WA': r'^[a-z*]{7}[0-9]{3}[0-9a-z]{2}$',
+    # Updated Washington state format according to the new format described
+    # here: https://www.wsiada.com/item/drivers-license-numbering-changes
+    'WA': r'^[a-z*]{7}[0-9]{3}[0-9a-z]{2}$|^wdl[0-9a-z]{9}$',
     'WV': r'^[0-9]{7}$|^[a-z]{1,2}[0-9]{5,6}$',
     'WI': r'^[a-z][0-9]{13}$',
     'WY': r'^[0-9]{9}$'

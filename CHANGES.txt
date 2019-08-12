@@ -4,3 +4,4 @@ v0.2.0, 2015/03/09 -- New Source for formats.
 v0.2.1, 2015/08/25 -- Added format for Oregon
 v0.3.0, 2015/09/02 -- Included more possible formats.
 v0.3.1, 2015/12/03 -- Fixed West Virginia's format.
+v0.3.2, 2019/08/12 -- Add support for new format in Washington state.

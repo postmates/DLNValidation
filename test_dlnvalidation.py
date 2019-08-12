@@ -407,11 +407,14 @@ class DLNValidationTest(unittest.TestCase):
         # Valid licenses New Format WA
         self.assertTrue(is_valid('WDL3P715863B', dl_state))
         self.assertTrue(is_valid('WDLABCD456DG', dl_state))
+        self.assertTrue(is_valid('wdl123456789', dl_state))
+        self.assertTrue(is_valid('wdlabcdefghi', dl_state))
 
         # Invalid Licenses
         self.assertFalse(is_valid('ab123', dl_state))
         self.assertFalse(is_valid('a123456', dl_state))
         self.assertFalse(is_valid('abcd123456789', dl_state))
+        self.assertFalse(is_valid('WDLABCD1234', dl_state))
 
     def test_west_virginia(self):
         dl_state = 'WV'
@@ -470,6 +473,7 @@ class DLNValidationTest(unittest.TestCase):
         self.assertTrue(is_valid(dl_num, "AS", True))
         self.assertTrue(is_valid(dl_num, "FM", True))
         self.assertTrue(is_valid(dl_num, "AA", True))
+
 
 if __name__ == '__main__':
     unittest.main()

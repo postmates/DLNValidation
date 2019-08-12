@@ -395,10 +395,20 @@ class DLNValidationTest(unittest.TestCase):
 
     def test_washington(self):
         dl_state = 'WA'
+        # Valid licenses Old Format WA
         self.assertTrue(is_valid('abcdefg12345', dl_state))
         self.assertTrue(is_valid('ab*****123ab', dl_state))
         self.assertTrue(is_valid('WASH*AB12345', dl_state))
         self.assertTrue(is_valid('ab*INGT1234b', dl_state))
+        self.assertTrue(is_valid('WHO**CL99095', dl_state))
+        self.assertTrue(is_valid('DOE**CL99095', dl_state))
+        self.assertTrue(is_valid('WOO**JT546KA', dl_state))
+
+        # Valid licenses New Format WA
+        self.assertTrue(is_valid('WDL3P715863B', dl_state))
+        self.assertTrue(is_valid('WDLABCD456DG', dl_state))
+
+        # Invalid Licenses
         self.assertFalse(is_valid('ab123', dl_state))
         self.assertFalse(is_valid('a123456', dl_state))
         self.assertFalse(is_valid('abcd123456789', dl_state))

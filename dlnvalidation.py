@@ -96,4 +96,4 @@ def is_valid(dl_number, dl_state, allow_territories=False):
     elif allow_territories and dl_state in OTHER_STATES:
         return True
     else:
-        raise Exception("Invalid state for drivers license number validation!")
+        raise Exception("Invalid state for drivers license number validation!") 
